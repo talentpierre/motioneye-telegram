@@ -39,9 +39,8 @@
 
 	notwendig, um die anwesenheit von geräten, die sich im energiesparmodus befinden, sicherzustellen
 	
-	```sh
 	$ sudo apt install arping
-	```
+
 
 ### Jetzt auf dem pi install-tg.sh ausführen
 
