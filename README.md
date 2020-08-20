@@ -42,7 +42,7 @@
 	$ sudo apt install arping
 
 
-### Jetzt auf dem pi install-tg.sh ausführen
+### Jetzt auf dem pi install.sh ausführen
 
 ### Verknüpfung mit motioneye
 
