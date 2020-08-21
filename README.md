@@ -1,53 +1,67 @@
-# motioneye-telegram - WORK IN PROGRESS! Überprüfe jedes Skript bevor du es ausführst
+# motioneye-telegram
 
-	das projekt basiert auf motioneye - https://github.com/ccrisan/motioneye/wiki/Installation
-	es überprüft, ob sich bestimmte ip adressen im wlan befinden
-	abhängig davon, sendet es eine benachrichtigung an deinen telegram bot, wenn sich etwas vor der kamera bewegt
+### WORK IN PROGRESS! - Überprüfe jedes Skript bevor du es ausführst
 
-### Neuen Bot erstellen
-
-	suche @botfather bei telegram und öffne den chat
-	der botfather führt dich durch die erstellung eines neuen bots
+Das Projekt basiert auf motioneye von [ccrisan - github](https://github.com/ccrisan/motioneye/wiki/Installation)
+motioneye-telegram überprüft, ob sich bestimmte Geräte im WLAN befinden und sendet abhängig davon eine Nachricht an deinen Telegram-Bot, sofern sich etwas vor der Kamera bewegt.
 	
-	/newbot
+### Bot-Erstellung	
 
-	notiere dir deinen http api key
+##### Einen Telegram-Bot erstellen
+*   suche @botfather bei Telegram und öffne den Chat
+*   gib folgenden Befehl ein und lass dich vom @botfather durch die Erstellung begleiten
+    ```sh
+    /newbot
+    ```
+*   notiere dir deinen HTTP API KEY und bewahre ihn sicher auf
 
-#### Privacy aktivieren (https://core.telegram.org/bots#privacy-mode)
-    
-	/setprivacy
+##### aktiviere die Privatsphäre 
+*   Details zur Privatsphäreeinstellung kannst du unter folgendem [Link](https://core.telegram.org/bots#privacy-mode) nachsehen
+*   verwende den folgenden Befehl in Telegram für die Privatsphäreeinstellungen 
+    ```
+    /setprivacy
+    ```
+##### weitere optionale Befehle in Telegram:
+*   die Eingabe erfolgt bei Telegram
+    ```
+    /setdescription - ändert die bot-beschreibung
+	  /setabouttext - ändert die bot-about-beschreibung
+	  /setuserpic - ändert das profilfoto des bots
+    ```
+##### Bestimmung der Chat_id:
+*   schreibe deinen eigenen bot bei Telegram an
+*   ggf. musst die ihn auch mehrfach anschreiben (@<DEIN_BOT_USERNAME>)
+*   öffne im Browser den folgenden Link mit deinem API KEY
+    ```
+    https://api.telegram.org/bot<HIER_API_TOKEN_KOMPLETT_EINFÜGEN>/getUpdates
+    ```
+*   Ausgabe im Browser:
+	  ```
+	  "message":{"message_id":1194,"from":{"id":<DEINE_CHAT-ID>,"is_bot":false,"first_name":"<DEIN_NAME>","username":"<DEIN_USERNAME>","language_code":"de"}
+	  ```
+*   lies deine Chat-ID ab, notiere sie dir und bewahre sie sicher auf
 
-### Optionale Befehle:
-    
-	/setdescription - ändert die bot-beschreibung
-	/setabouttext - ändert die bot-about-beschreibung
-	/setuserpic - ändert das profilfoto des bots
-
-### Chat_id herausfinden:
-	
-	schreibe deinen eigenen bot in telegram an(@username) ggf. auch zweimal
-	öffne im browser den folgenden link mit deinem api key
-
-	[https://api.telegram.org/bot<hier api token komplett einfügen>/getUpdates](https://api.telegram.org/bot%3Chier%20api%20token%20komplett%20einf%C3%BCgen%3E/getUpdates) aufrufen
-
-#### Ausgabe im Browser:
-	
-	"message":{"message_id":1194,"from":{"id":## HIER STEHT DIE CHAT_ID ##,"is_bot":false,"first_name":"## hier steht der name ##","username":"## hier steht der username ##","language_code":"de"}
-	lies deine chat-id ab und notiere sie dir
-	
 ### Installation von arping
 
-	notwendig, um die anwesenheit von geräten, die sich im energiesparmodus befinden, sicherzustellen
-	
-	$ sudo apt install arping
 
+*   Einige Geräte sind im Energiesparmodus nicht oder nur sehr schlecht ansprechbar, daher verwenden wir ARPING
+*   führe den folgenden Befehl im Terminal deines RaspberryPi aus
+    ```
+	  $ sudo apt install arping
+    ```
 
-### Jetzt auf dem pi install.sh ausführen
+### Installation von motioneye-telegram
+*   wechsle in dein home-Verzeichnis auf dem RaspberryPi
+*   lade dir die Dateien von Github herunter (manuell oder über git clone)
+*   führe das Installations-Skript aus
+    ```
+    ./install.sh
+    ```
 
-### Verknüpfung mit motioneye
+### Herstellen der Verbindung mit motioneye
 
-	trage den pfad zum script in den bereich "run an end command" unter "motion notification" ein
-	z.b. <bash /home/pi/met/motion-send.sh %$ %t>
-	das "%$" ist wichtig, weil es den namen, der kamera an das skript übergibt
-	das "%t" ist wichtig, weil es die kamera-id an das skript übergibt
+*   trage den Pfad zum Script in den Bereich "run an end command" unter "motion notification" in motioneye ein
+	  z.B. ```bash /home/pi/met/motion-send.sh %$ %t```
+*   ```%$``` ist wichtig, weil es den Namen, der Kamera an das Skript übergibt
+*   ```%t``` ist wichtig, weil es die Kamera-ID an das Skript übergibt
 	
