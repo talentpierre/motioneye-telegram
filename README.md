@@ -55,7 +55,7 @@ motioneye-telegram überprüft, ob sich bestimmte Geräte im WLAN befinden und s
 *   lade dir die Dateien von Github herunter (manuell oder über git clone)
 *   führe das Installations-Skript aus
     ```
-    ./install.sh
+    $ ./install.sh
     ```
 
 ### Herstellen der Verbindung mit motioneye
