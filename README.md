@@ -29,16 +29,15 @@ motioneye-telegram überprüft, ob sich bestimmte Geräte im WLAN befinden und s
     /setuserpic - ändert das profilfoto des bots
     ```
 ##### Bestimmung der Chat_id:
-*   schreibe deinen eigenen bot bei Telegram an
-*   ggf. musst die ihn auch mehrfach anschreiben (@<DEIN_BOT_USERNAME>)
-*   öffne im Browser den folgenden Link mit deinem API KEY
-    ```
-    https://api.telegram.org/bot<HIER_API_TOKEN_KOMPLETT_EINFÜGEN>/getUpdates
-    ```
-*   Ausgabe im Browser:
-    ```
-    "message":{"message_id":1194,"from":{"id":<DEINE_CHAT-ID>,"is_bot":false,"first_name":"<DEIN_NAME>","username":"<DEIN_USERNAME>","language_code":"de"}
-    ```
+*   suche @jsondumpbot bei Telegram und schreibe ihn dort an
+*	du erhältst eine Nachricht im json-Format zurück
+*   z.B.
+	```
+	"chat": {
+	  "id": <DEINE_CHAT-ID (z.B. 321654987)>,
+	  (... und einiges mehr ...)
+	},
+	```
 *   lies deine Chat-ID ab, notiere sie dir und bewahre sie sicher auf
 
 ### Installation von arping
