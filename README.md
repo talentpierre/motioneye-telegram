@@ -60,7 +60,7 @@ motioneye-telegram überprüft, ob sich bestimmte Geräte im WLAN befinden und s
 ### Herstellen der Verbindung mit motioneye
 
 *   trage den Pfad zum Script in den Bereich "run an end command" unter "motion notification" in motioneye ein
-    z.B. ```bash /home/pi/met/motion-send.sh %$ %t```
+    z.B. ```bash /home/pi/motioneye-telegram/motion-send.sh %$ %t```
 *   ```%$``` ist wichtig, weil es den Namen, der Kamera an das Skript übergibt
 *   ```%t``` ist wichtig, weil es die Kamera-ID an das Skript übergibt
 	
