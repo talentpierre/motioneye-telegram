@@ -63,17 +63,17 @@ else
 	func_writeLog "$(date) - SMARTPHONE NICHT verfuegbar, skript starten." 
 	func_writeLog ""
 
-	var_lastsnap=$(tree -ftri $var_mediaCameraDir | grep .jpg | head -n1)
+#	var_lastsnap=$(tree -ftri $var_mediaCameraDir | grep .jpg | head -n1)
 	var_lastvideo=$(tree -ftri $var_mediaCameraDir | grep -v thumb | grep .mp4 | head -n1)
 
-	func_writeLog "$(date) - \$var_lastsnap is $var_lastsnap"
+#	func_writeLog "$(date) - \$var_lastsnap is $var_lastsnap"
 	func_writeLog "$(date) - \$var_lastvideo is $var_lastvideo"
 	func_writeLog""
 	
-	func_writeLog "$(date) - BEGINNE tg-sendphoto.py:"
-	$var_scriptDir/tg-sendPhoto.py $var_apiKey $var_chatID $var_lastsnap "$var_cameraName - ${var_lastsnap: -23:19}" >> $var_logfile
-	func_writeLog "$(date) - BEENDE tg-sendphoto.py."
-	func_writeLog ""
+#	func_writeLog "$(date) - BEGINNE tg-sendphoto.py:"
+#	$var_scriptDir/tg-sendPhoto.py $var_apiKey $var_chatID $var_lastsnap "$var_cameraName - ${var_lastsnap: -23:19}" >> $var_logfile
+#	func_writeLog "$(date) - BEENDE tg-sendphoto.py."
+#	func_writeLog ""
 	
 	func_writeLog "$(date) - BEGINNE tg-sendvideo.py:"
 	$var_scriptDir/tg-sendVideo.py $var_apiKey $var_chatID $var_lastvideo "$var_cameraName - ${var_lastvideo: -23:19}" >> $var_logfile
